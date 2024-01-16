@@ -1,3 +1,4 @@
+
 const weatherForm = document.querySelector('form')
 const addressTerm = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
@@ -11,7 +12,7 @@ weatherForm.addEventListener('submit', (e) => {
     // Empty all other data in the past 
     messageTwo.textContent = ""
     errorMessage.textContent = ""
-    fetch(`http://localhost:3000/weather?address=${addressTerm.value}`).then((res) => {
+    fetch(`/weather?address=${addressTerm.value}`).then((res) => {
         res.json().then((data) => {
             messageOne.textContent = ""
             clearInterval(intervalId);
