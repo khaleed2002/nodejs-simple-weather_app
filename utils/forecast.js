@@ -1,11 +1,14 @@
 import axios from "axios"
+import process from 'process'
+import dotenv from 'dotenv'
+dotenv.config();
 
-const forcastUrl = 'https://api.weatherapi.com/v1/current.json?key=c629084e5cdd4c3e8ac124615241301&q='
+const forcastUrl = `https://api.weatherapi.com/v1/current.json?key=${process.env.FORECAST_KEY}&q=`
 const forecast = (latitiude, longitude, callback) => {
     axios.get(forcastUrl + latitiude + ',' + longitude)
         .then((response) => {
             if (Object.keys(response.data).length > 0) {
-                const { location,current } = response.data
+                const { location, current } = response.data
                 const data = {
                     location: location?.name,
                     temperature: current?.temp_c,

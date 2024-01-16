@@ -1,7 +1,10 @@
 import axios from 'axios'
+import process from "process"
+import dotenv from 'dotenv'
+dotenv.config();
 
-const geoCodeUrl = 'https://geocode.maps.co/search?api_key=65a2e37c5b7a8868534525jho2c04c2&q='
-
+const geoCodeUrl = `https://geocode.maps.co/search?api_key=${process.env.GEOCODE_KEY}&q=`
+console.log(process.env.geocodeKey);
 const geocode = (address, callback) => {
     axios.get(geoCodeUrl + encodeURIComponent(address))
         .then((response) => {
@@ -18,6 +21,7 @@ const geocode = (address, callback) => {
             }
         })
         .catch((err) => {
+            console.log(err);
             callback("Could not to connnect to weather app.", undefined)
         })
 }
