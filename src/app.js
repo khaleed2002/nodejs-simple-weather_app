@@ -110,7 +110,5 @@ app.get('*', (req, res) => {
 })
 app.listen(3000, () => {
     console.log("Server is listening on port 3000.");
-    console.log("Go to home page through this link:");
-    console.log("http://localhost:3000");
 })
 
