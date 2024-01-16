@@ -4,7 +4,6 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 const geoCodeUrl = `https://geocode.maps.co/search?api_key=${process.env.GEOCODE_KEY}&q=`
-console.log(process.env.geocodeKey);
 const geocode = (address, callback) => {
     axios.get(geoCodeUrl + encodeURIComponent(address))
         .then((response) => {
