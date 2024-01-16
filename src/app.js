@@ -47,7 +47,7 @@ app.get('/help', (req, res) => {
     res.render('help', {
         title: "Help",
         name: "Khaled",
-        message: "Error occured"
+        message: "Help message"
     })
 })
 
